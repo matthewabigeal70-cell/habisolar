@@ -1,4 +1,4 @@
-                                                                                    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -82,7 +82,7 @@
                         <p>Total Installed</p>
                     </div>
                     <div class="stat-item">
-                        <h3>₦<span class="counter" data-target="15">0</span>B+</h3>
+                        <h3>$<span class="counter" data-target="15">0</span>M+</h3>
                         <p>Utility Savings</p>
                     </div>
                 </div>
@@ -217,10 +217,10 @@
                     <div class="calc-group">
                         <div class="calc-label-wrapper">
                             <label class="calc-label" for="calc-bill-slider">Monthly Electricity Bill</label>
-                            <span class="calc-value" id="calc-bill-display">₦15,000</span>
+                            <span class="calc-value" id="calc-bill-display">$150</span>
                         </div>
-                        <input type="range" id="calc-bill-slider" class="range-slider" min="5000" max="150000" step="1000"
-                            value="15000">
+                        <input type="range" id="calc-bill-slider" class="range-slider" min="50" max="800" step="10"
+                            value="150">
                     </div>
 
                     <div class="calc-group">
@@ -246,7 +246,7 @@
                 <div class="calc-results">
                     <div class="result-main">
                         <div class="result-main-label">Estimated First-Year Savings</div>
-                        <div class="result-main-value" id="savings-annual">₦162,000</div>
+                        <div class="result-main-value" id="savings-annual">$1,620</div>
                         <p style="font-size: 0.9rem; color: var(--text-muted);">*Based on average local sunlight hours
                             and panel efficiency.</p>
                     </div>
@@ -258,7 +258,7 @@
                         </div>
                         <div class="result-card">
                             <div class="result-card-label">25-Year Savings</div>
-                            <div class="result-card-value" id="savings-lifetime">₦5,240,000</div>
+                            <div class="result-card-value" id="savings-lifetime">$52,400</div>
                         </div>
                     </div>
 
@@ -383,11 +383,11 @@
                             <label for="wizard-bill-select">Average Monthly Electric Bill</label>
                             <select id="wizard-bill-select" name="monthly_bill" required>
                                 <option value="" disabled selected>Select bill range...</option>
-                                <option value="under-10k">Under ₦10,000</option>
-                                <option value="10k-30k">₦10,000 - ₦30,000</option>
-                                <option value="30k-60k">₦30,000 - ₦60,000</option>
-                                <option value="60k-100k">₦60,000 - ₦100,000</option>
-                                <option value="over-100k">Over ₦100,000</option>
+                                <option value="under-100">Under $100</option>
+                                <option value="100-200">$100 - $200</option>
+                                <option value="200-350">$200 - $350</option>
+                                <option value="350-500">$350 - $500</option>
+                                <option value="over-500">Over $500</option>
                             </select>
                         </div>
                     </div>

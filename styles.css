@@ -579,9 +579,11 @@ nav {
 
 .hero-text {
     font-size: 1.2rem;
-    color: rgba(248, 250, 252, 0.85);
+    color: #ffffff;
     margin-bottom: 2.5rem;
     max-width: 560px;
+    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.85), 0 2px 20px rgba(0, 0, 0, 0.6);
+    font-weight: 500;
 }
 
 .hero-ctas {
