@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+                                                                                    <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -26,16 +26,6 @@
                 <div class="logo-text">HABI<span>SOLAR</span></div>
             </a>
 
-            <nav id="nav-menu">
-                <ul>
-                    <li><a href="#" class="active">Home</a></li>
-                    <li><a href="#solutions">Solutions</a></li>
-                    <li><a href="#calculator">Savings Calculator</a></li>
-                    <li><a href="#process">Our Process</a></li>
-                    <li><a href="#faqs">FAQs</a></li>
-                </ul>
-            </nav>
-
             <a href="#wizard" class="btn btn-primary header-cta">Get Free Quote</a>
 
             <div class="hamburger" id="hamburger-menu">
@@ -46,9 +36,33 @@
         </div>
     </header>
 
+    <!-- Nav Overlay (backdrop) -->
+    <div class="nav-overlay" id="nav-overlay"></div>
+
+    <!-- Slide-in Nav Drawer -->
+    <nav class="nav-drawer" id="nav-drawer">
+        <ul>
+            <li><a href="#" class="active">Home</a></li>
+            <li><a href="#solutions">Solutions</a></li>
+            <li><a href="#calculator">Savings Calculator</a></li>
+            <li><a href="#process">Our Process</a></li>
+            <li><a href="#faqs">FAQs</a></li>
+        </ul>
+        <a href="#wizard" class="btn btn-primary nav-drawer-cta">Get Free Quote</a>
+    </nav>
+
     <!-- Hero Section -->
     <section class="hero" id="home">
-        <div class="container hero-grid">
+        <!-- Full-bleed background slideshow -->
+        <div class="hero-bg-slideshow">
+            <div class="slide active" style="background-image: url('assets/images/hero_solar_house.png');" role="img" aria-label="Modern villa with roof-integrated solar panels"></div>
+            <div class="slide" style="background-image: url('assets/images/residential_solar.png');" role="img" aria-label="Residential solar installation"></div>
+            <div class="slide" style="background-image: url('assets/images/commercial_solar.png');" role="img" aria-label="Commercial solar array"></div>
+        </div>
+        <!-- Dark overlay for readability -->
+        <div class="hero-bg-overlay"></div>
+
+        <div class="container hero-content-wrap">
             <div class="hero-content">
                 <div class="badge gold">Intelligent Energy for Tomorrow</div>
                 <h1 class="hero-title">Power Your Home With <span>Clean Solar</span> Energy</h1>
@@ -59,7 +73,7 @@
                     <a href="#calculator" class="btn btn-secondary">Calculate Savings</a>
                 </div>
                 <div class="hero-stats">
-                    <div cl ass="stat-item">
+                    <div class="stat-item">
                         <h3><span class="counter" data-target="5000">0</span>+</h3>
                         <p>Homes Powered</p>
                     </div>
@@ -68,25 +82,27 @@
                         <p>Total Installed</p>
                     </div>
                     <div class="stat-item">
-                        <h3>$<span class="counter" data-target="15">0</span>M+</h3>
+                        <h3>₦<span class="counter" data-target="15">0</span>B+</h3>
                         <p>Utility Savings</p>
                     </div>
                 </div>
             </div>
-            <div class="hero-visual">
-                <div class="hero-glow-orb"></div>
-                <div class="hero-img-wrapper">
-                    <img src="assets/images/hero_solar_house.png" alt="Modern villa with roof integrated solar panels"
-                        id="hero-img">
-                </div>
-                <div class="hero-floating-card glass-panel">
-                    <div class="card-icon-circle">⚡</div>
-                    <div class="floating-card-info">
-                        <h4>Live Output</h4>
-                        <p id="live-output-text">Generating 5.8 kW</p>
-                    </div>
+
+            <!-- Floating live output card -->
+            <div class="hero-floating-card glass-panel">
+                <div class="card-icon-circle">⚡</div>
+                <div class="floating-card-info">
+                    <h4>Live Output</h4>
+                    <p id="live-output-text">Generating 5.8 kW</p>
                 </div>
             </div>
+        </div>
+
+        <!-- Slide dot indicators -->
+        <div class="slide-dots">
+            <button class="dot active" data-slide="0" aria-label="Slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Slide 3"></button>
         </div>
     </section>
 
@@ -201,10 +217,10 @@
                     <div class="calc-group">
                         <div class="calc-label-wrapper">
                             <label class="calc-label" for="calc-bill-slider">Monthly Electricity Bill</label>
-                            <span class="calc-value" id="calc-bill-display">$150</span>
+                            <span class="calc-value" id="calc-bill-display">₦15,000</span>
                         </div>
-                        <input type="range" id="calc-bill-slider" class="range-slider" min="50" max="800" step="10"
-                            value="150">
+                        <input type="range" id="calc-bill-slider" class="range-slider" min="5000" max="150000" step="1000"
+                            value="15000">
                     </div>
 
                     <div class="calc-group">
@@ -230,7 +246,7 @@
                 <div class="calc-results">
                     <div class="result-main">
                         <div class="result-main-label">Estimated First-Year Savings</div>
-                        <div class="result-main-value" id="savings-annual">$1,620</div>
+                        <div class="result-main-value" id="savings-annual">₦162,000</div>
                         <p style="font-size: 0.9rem; color: var(--text-muted);">*Based on average local sunlight hours
                             and panel efficiency.</p>
                     </div>
@@ -242,7 +258,7 @@
                         </div>
                         <div class="result-card">
                             <div class="result-card-label">25-Year Savings</div>
-                            <div class="result-card-value" id="savings-lifetime">$52,400</div>
+                            <div class="result-card-value" id="savings-lifetime">₦5,240,000</div>
                         </div>
                     </div>
 
@@ -367,11 +383,11 @@
                             <label for="wizard-bill-select">Average Monthly Electric Bill</label>
                             <select id="wizard-bill-select" name="monthly_bill" required>
                                 <option value="" disabled selected>Select bill range...</option>
-                                <option value="under-100">Under $100</option>
-                                <option value="100-200">$100 - $200</option>
-                                <option value="200-350">$200 - $350</option>
-                                <option value="350-500">$350 - $500</option>
-                                <option value="over-500">Over $500</option>
+                                <option value="under-10k">Under ₦10,000</option>
+                                <option value="10k-30k">₦10,000 - ₦30,000</option>
+                                <option value="30k-60k">₦30,000 - ₦60,000</option>
+                                <option value="60k-100k">₦60,000 - ₦100,000</option>
+                                <option value="over-100k">Over ₦100,000</option>
                             </select>
                         </div>
                     </div>

@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ==========================================================================
     // Hero Background Image Slideshow
     // ==========================================================================
-    const slides = document.querySelectorAll('.hero-slideshow .slide');
+    const slides = document.querySelectorAll('.hero-bg-slideshow .slide');
     const dots   = document.querySelectorAll('.slide-dots .dot');
     let currentSlide = 0;
     let slideshowTimer = null;
@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const coverageVal = parseInt(coverageSlider.value);
 
         // Display updates
-        billDisplay.textContent = `$${billVal}`;
+        billDisplay.textContent = `₦${billVal.toLocaleString('en-NG')}`;
         coverageDisplay.textContent = `${coverageVal}%`;
 
         // Mathematical Solar Estimations
@@ -199,36 +199,34 @@ document.addEventListener('DOMContentLoaded', () => {
         // Base savings percentage: Solar replaces 90% of residential bills, 85% of commercial bills
         const efficiencyFactor = currentSector === 'residential' ? 0.90 : 0.85;
         
-        // First-Year Annual Savings
+        // First-Year Annual Savings (in Naira)
         const annualSavings = Math.round(billVal * 12 * efficiencyFactor * offsetRatio);
         
         // System cost estimation: ~7 years worth of bill offsets
         const estimatedSystemCost = billVal * 12 * 7 * offsetRatio;
         
         // Payback Period (Years)
-        // Bigger electric bills amortize faster. Residential panels payback slightly faster
+        // Bigger electricity bills amortize faster. Residential panels payback slightly faster
         const sectorBasePayback = currentSector === 'residential' ? 6.5 : 7.2;
-        const discountFactor = (billVal / 400); // larger bills reduce payback years
+        const discountFactor = (billVal / 60000); // scaled to ₦60,000 baseline
         const paybackPeriod = Math.max(4.2, (sectorBasePayback - discountFactor) / (offsetRatio * 0.95));
 
-        // 25-Year Lifetime Savings (compounding typical 3% annual grid electricity inflation)
+        // 25-Year Lifetime Savings (compounding typical 15% annual Nigerian electricity tariff inflation)
         let totalLifetimeSavings = 0;
         let yearlySavings = annualSavings;
         for (let i = 0; i < 25; i++) {
             totalLifetimeSavings += yearlySavings;
-            yearlySavings *= 1.03; // inflation rate
+            yearlySavings *= 1.15; // Nigerian inflation rate on electricity tariffs
         }
 
-        // Carbon Footprint calculations:
-        // Average US residential footprint is 0.85 pounds CO2 per kWh.
-        // We estimate CO2 offsets based on monthly bill values
-        const annualCo2OffsetTons = parseFloat((billVal * 0.016 * offsetRatio).toFixed(1));
+        // Carbon Footprint calculations
+        const annualCo2OffsetTons = parseFloat((billVal * 0.000016 * offsetRatio).toFixed(1));
         const equivalentTreesPlanted = Math.round(annualCo2OffsetTons * 16.5);
 
-        // Render values to UI
-        savingsAnnualEl.textContent = `$${annualSavings.toLocaleString()}`;
+        // Render values to UI in Naira
+        savingsAnnualEl.textContent = `₦${annualSavings.toLocaleString('en-NG')}`;
         savingsPaybackEl.innerHTML = `<span>${paybackPeriod.toFixed(1)}</span> Years`;
-        savingsLifetimeEl.textContent = `$${Math.round(totalLifetimeSavings).toLocaleString()}`;
+        savingsLifetimeEl.textContent = `₦${Math.round(totalLifetimeSavings).toLocaleString('en-NG')}`;
         envCo2El.textContent = `Offsets ${annualCo2OffsetTons} tons of CO2 / yr`;
         envTreesEl.textContent = `Equivalent to planting ${equivalentTreesPlanted} trees annually`;
     };
